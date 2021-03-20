@@ -1,0 +1,37 @@
+name: podcast-dl-gael
+version: "1.0"
+base: core20
+summary: Podcast-dl
+description: Podcast-dl
+
+grade: stable
+confinement: strict
+
+architectures:
+- build-on: amd64
+  run-on: all
+
+license: "GPL-3.0"
+
+apps:
+  podcast-dl:
+    command: podcast-dl/podcast-dl.sh
+    daemon: simple
+    timer: 06:00
+    plugs:
+      - network
+
+parts:
+  podcast-dl:
+    plugin: dump
+    source: local/
+
+  youtube-dl-env:
+    plugin: python
+    python-packages: []
+    stage-packages:
+      - curl
+
+hooks:
+  install:
+    plugs: []

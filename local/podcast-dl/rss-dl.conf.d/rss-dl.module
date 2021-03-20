@@ -1,0 +1,48 @@
+#!/bin/bash
+
+DOWNLOAD_DIR="$SNAP_COMMON/podcast-dl/podcasts"
+ARCHIVE_FILE="$SNAP_COMMON/podcast-dl/rss-dl.conf.d/rss-dl.download.archive"
+
+if [ $# -ne 1 ] ; then
+   echo "Fatal error: Missing URL"
+   exit 1
+fi
+
+TMP_FILE=`mktemp`
+
+curl $1 --silent --output "$TMP_FILE"
+
+while read line; do
+
+   if [[ "$line" == *"<title>"* ]]; then
+      title=`echo "$line" | cut -d '>' -f 2 | cut -d '<' -f 1 | sed -r 's/[/\\]+/_/g'`
+   fi
+
+   if [[ "$line" == *"<pubDate>"* ]]; then
+      pubDate=`echo "$line" | cut -d '>' -f 2 | cut -d '<' -f 1`
+      pubDate=`date --date="$pubDate" '+%Y%m%d'`
+   fi
+
+   if [[ "$line" == *"<enclosure url"* ]]; then
+      url=`echo "$line" | cut -d '"' -f 2`
+   fi
+
+   if [[ "$line" == *"<guid"* ]]; then
+      guid=`echo "$line" | cut -d '>' -f 2 | cut -d '<' -f 1`
+   fi
+
+   if [[ "$line" == *"</item>"* ]]; then
+
+      if ! grep "$guid" "$ARCHIVE_FILE" > /dev/null ; then
+
+         echo "Downloading $title..."
+
+         if curl "$url" --silent --output "$DOWNLOAD_DIR/$pubDate-$title" ; then
+            echo "$guid" >> "$ARCHIVE_FILE"
+         fi
+      fi
+   fi
+
+done < "$TMP_FILE"
+
+rm "$TMP_FILE"
