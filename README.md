@@ -32,6 +32,9 @@ ls -l /var/snap/podcast-dl-gael/common/podcast-dl/podcasts/
 
 ### Revisions
 
+**2023-02-09**
+* New build to resolve CVE-2022-45142/USN-5849-1
+
 **2023-01-13**
 * New build to resolve CVE-2021-44758/CVE-2022-3437/CVE-2022-42898/CVE-2022-44640/USN-5800-1
 
