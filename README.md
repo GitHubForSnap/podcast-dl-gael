@@ -32,6 +32,10 @@ ls -l /var/snap/podcast-dl-gael/common/podcast-dl/podcasts/
 
 ### Revisions
 
+**2023-02-28**
+* New build to resolve CVE-2023-23914/CVE-2023-23915/CVE-2023-23916/USN-5891-1
+* FFmpeg has been provided to allow transcoding
+
 **2023-02-23**
 * Moving away from youtube-dl to yt-dlp following https://github.com/ytdl-org/youtube-dl/issues/31530
 * FFmpeg is not provided yet

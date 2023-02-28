@@ -1,10 +1,10 @@
 name: podcast-dl-gael
-version: "2.0-20230223"
+version: "2.0-20230228"
 base: core20
 summary: A simple script to download podcasts from YouTube or RSS feeds
 description: |
   A simple script to download videos/podcasts from YouTube or RSS feeds.
-  Behind the scene it uses [youtube-dl](https://youtube-dl.org/) and Python's feedparser.
+  Behind the scene it uses [yt-dlp](https://github.com/yt-dlp/yt-dlp) and Python's feedparser.
   New files are downloaded everyday at 06:00.
 
 grade: stable
@@ -22,6 +22,7 @@ apps:
     command: podcast-dl/podcast-dl.sh
     environment:
       PYTHONPATH: $SNAP/lib/python3.8/site-packages
+      LD_LIBRARY_PATH: $SNAP/lib/$SNAPCRAFT_ARCH_TRIPLET:$SNAP/usr/lib/$SNAPCRAFT_ARCH_TRIPLET:$SNAP/usr/lib/$SNAPCRAFT_ARCH_TRIPLET/pulseaudio
     daemon: simple
     timer: 06:00
     plugs:
@@ -37,6 +38,14 @@ parts:
     python-packages:
       - requests
       - feedparser
+
+  ffmpeg:
+    plugin: nil
+    stage-packages:
+      - ffmpeg
+      - libglu1-mesa
+      - freeglut3
+      - libpulse0
 
   utils:
     plugin: nil
