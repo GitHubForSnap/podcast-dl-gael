@@ -2,7 +2,7 @@
 
 A simple script to download videos/podcasts from YouTube or RSS feeds.
 
-Behind the scene it uses [youtube-dl](https://youtube-dl.org/) and Python's feedparser.
+Behind the scene it uses [yt-dlp](https://github.com/yt-dlp/yt-dlp) and Python's feedparser.
 
 ### YouTube videos (or any other services supported by youtube-dl)
 
