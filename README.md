@@ -32,6 +32,9 @@ ls -l /var/snap/podcast-dl-gael/common/podcast-dl/podcasts/
 
 ### Revisions
 
+**2023-06-16**
+* New build to resolve CVE-2023-3138/USN-6168-1
+
 **2023-06-06**
 * New build to resolve CVE-2023-1667/CVE-2023-2283/USN-6138-1
 * yt-dlp updated to v2023.03.04
