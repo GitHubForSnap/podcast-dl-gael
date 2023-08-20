@@ -4,14 +4,14 @@ A simple script to download videos/podcasts from YouTube or RSS feeds.
 
 Behind the scene it uses [yt-dlp](https://github.com/yt-dlp/yt-dlp) and Python's feedparser.
 
-### YouTube videos (or any other services supported by youtube-dl)
+### YouTube videos (or any other services supported by yt-dlp)
 
 * List your YouTube video or playlist URLs here (one URL per line)
 ```
 sudo vi /var/snap/podcast-dl-gael/common/podcast-dl/youtube-dl.conf.d/youtube-dl.url
 ```
 
-* Configure youtube-dl here
+* Configure yt-dlp here
 ```
 sudo vi /var/snap/podcast-dl-gael/common/podcast-dl/youtube-dl.conf.d/youtube-dl.conf
 ```
@@ -31,6 +31,9 @@ ls -l /var/snap/podcast-dl-gael/common/podcast-dl/podcasts/
 ```
 
 ### Revisions
+
+**2023-08-16**
+* New build to resolve CVE-2022-48281/CVE-2023-2908/CVE-2023-3316/CVE-2023-3618/CVE-2023-25433/CVE-2023-26965/CVE-2023-26966/CVE-2023-38288/CVE-2023-38289/USN-6290-1
 
 **2023-08-02**
 * New build to resolve CVE-2023-38633/USN-6266-1
