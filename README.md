@@ -90,7 +90,7 @@ sudo podcast-dl-gael.rss-skip-download https://latenightlinux.com/feeds/
 
 **2026-07-16**
 * New build to resolve USN-8538-1/USN-8543-1/USN-8549-1
-* eno has been updated to v2.9.3
+* Deno has been updated to v2.9.3
 
 **2026-07-11**
 * New build to resolve USN-8525-1
