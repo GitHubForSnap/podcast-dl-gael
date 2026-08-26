@@ -88,6 +88,9 @@ sudo podcast-dl-gael.rss-skip-download https://latenightlinux.com/feeds/
 
 ### Revisions
 
+**2026-08-26**
+* New build to resolve CVE-2026-8932/USN-8670-1
+
 **2026-08-22**
 * New build to resolve CVE-2026-11856/USN-8651-1/USN-8543-2
 * Deno has been updated to v2.9.5
